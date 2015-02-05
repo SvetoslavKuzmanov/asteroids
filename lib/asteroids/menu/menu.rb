@@ -34,5 +34,13 @@ module Asteroids
       end
     end
 
+    def confirm
+      @items.each do |item|
+        if item.is_selected?
+          item.execute
+        end
+      end
+    end
+
   end
 end

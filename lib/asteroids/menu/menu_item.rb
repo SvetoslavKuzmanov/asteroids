@@ -45,5 +45,11 @@ module Asteroids
       @image.height
     end
 
+    def execute
+      if @selected
+          @callback.call
+      end
+    end
+
   end
 end

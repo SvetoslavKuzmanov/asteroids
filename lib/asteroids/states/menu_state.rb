@@ -35,6 +35,9 @@ module Asteroids
       if id == Gosu::KbUp
         @menu.select_item(:-)
       end
+      if id == Gosu::KbReturn
+        @menu.confirm
+      end
     end
 
   end
