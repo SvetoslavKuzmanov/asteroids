@@ -29,7 +29,12 @@ module Asteroids
     end
 
     def button_down(id)
-      $window.close if id == Gosu::KbQ
+      if id == Gosu::KbDown
+        @menu.select_next_item
+      end
+      if id == Gosu::KbUp
+        @menu.select_previous_item
+      end
     end
 
   end
