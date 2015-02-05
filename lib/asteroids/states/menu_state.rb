@@ -5,8 +5,10 @@ module Asteroids
     include Singleton
 
     def initialize
-      @message = Gosu::Image.from_text(
-        $window, "Asteroids", Gosu.default_font_name, 100)
+      @title = Gosu::Image.from_text($window, "Asteroids",
+        Utils.get_font_path('victor-pixel.ttf'), 100)
+      @background = Gosu::Image.new($window,
+        Utils.get_image_path('background.png'), false)
     end
 
     def update
@@ -14,9 +16,10 @@ module Asteroids
     end
 
     def draw
-      @message.draw(
-        $window.width / 2 - @message.width / 2,
-        $window.height / 5 - @message.height / 5,
+      @background.draw(0,0,0)
+      @title.draw(
+        $window.width / 2 - @title.width / 2,
+        $window.height / 5 - @title.height / 5,
         10)
     end
 

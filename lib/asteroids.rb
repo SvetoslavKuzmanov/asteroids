@@ -5,6 +5,7 @@ module Asteroids
 
    def initialize
      super(800, 600, false)
+     self.caption = 'Asteroids'
    end
 
    def update
