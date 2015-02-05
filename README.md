@@ -1,31 +1,19 @@
 # Asteroids
 
-TODO: Write a gem description
+This is my take on the classic arcade space shooted Asteroids by Atari.
+In the game the player controls a spaceship in an asteroid field which is periodically traversed by flying saucers.
+The object of the game is to shoot and destroy asteroids and saucers while not colliding with either,
+or being hit by the saucers counter-fire. The game becomes harder as the number of asteroids increases.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+To install the game run:
+	$ gem install asteroids
 
-```ruby
-gem 'asteroids'
-```
+## Starting the game
+	$ asteroids
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install asteroids
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/asteroids/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+## Controls
+	Use the arrow keys to control the ship
+	Space shoots
+	ESC goes to menu.
