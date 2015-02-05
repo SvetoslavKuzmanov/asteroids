@@ -10,6 +10,7 @@ module Asteroids
 
     def draw
       @background.draw(0, 0, 0)
+      @object_pool.objects.map(&:draw)
     end
 
     def update

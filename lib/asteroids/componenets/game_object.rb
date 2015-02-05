@@ -14,7 +14,8 @@ module Asteroids
     def update
     end
 
-    def draw()
+    def draw
+      @components.map(&:draw)
     end
 
     def removable?
