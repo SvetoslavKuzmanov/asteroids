@@ -23,21 +23,10 @@ module Asteroids
         @items.count * 60 }
     end
 
-    def select_next_item
+    def select_item(which)
       @items.each_with_index do |item, index|
         if item.is_selected?
-          if @items[(index + 1) % 3].select
-            item.deselect
-            return true
-          end
-        end
-      end
-    end
-
-    def select_previous_item
-      @items.each_with_index do |item, index|
-        if item.is_selected?
-          if @items[(index - 1) % 3].select
+          if @items[index.send(which, 1) % 3].select
             item.deselect
             return true
           end

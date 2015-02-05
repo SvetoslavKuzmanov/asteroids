@@ -30,10 +30,10 @@ module Asteroids
 
     def button_down(id)
       if id == Gosu::KbDown
-        @menu.select_next_item
+        @menu.select_item(:+)
       end
       if id == Gosu::KbUp
-        @menu.select_previous_item
+        @menu.select_item(:-)
       end
     end
 
