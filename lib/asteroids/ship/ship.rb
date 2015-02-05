@@ -5,6 +5,8 @@ module Asteroids
 
     def initialize(object_pool)
       super(object_pool)
+      @physics = ShipPhysics.new(self, object_pool)
+      @graphics = ShipGraphics.new(self)
     end
 
   end
