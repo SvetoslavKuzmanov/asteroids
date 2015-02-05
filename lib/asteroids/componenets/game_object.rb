@@ -12,6 +12,7 @@ module Asteroids
     end
 
     def update
+      @components.map(&:update)
     end
 
     def draw
