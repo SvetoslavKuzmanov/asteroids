@@ -15,10 +15,6 @@ module Asteroids
       @menu.add_item("Exit", lambda { $window.close }, false)
     end
 
-    def update
-
-    end
-
     def draw
       @background.draw(0,0,0)
       @title.draw(
