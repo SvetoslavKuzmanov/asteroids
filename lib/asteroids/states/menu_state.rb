@@ -9,6 +9,10 @@ module Asteroids
         Utils.get_font_path('victor-pixel.ttf'), 100)
       @background = Gosu::Image.new($window,
         Utils.get_image_path('background.png'), false)
+      @menu = Menu.new
+      @menu.add_item("New Game", lambda { puts 'new game' }, true)
+      @menu.add_item("Load Game", lambda { puts 'load game' }, false)
+      @menu.add_item("Exit", lambda { $window.close }, false)
     end
 
     def update
@@ -21,6 +25,7 @@ module Asteroids
         $window.width / 2 - @title.width / 2,
         $window.height / 5 - @title.height / 5,
         10)
+      @menu.draw
     end
 
     def button_down(id)

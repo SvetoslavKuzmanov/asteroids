@@ -17,12 +17,6 @@ module Asteroids
       end
     end
 
-    def update
-      @items.each do |i|
-          i.update
-      end
-    end
-
     def position
       {x: $window.width / 2 - @items[@items.count - 1].width / 2,
        y: $window.height / 3  - @items[@items.count - 1].height / 3 +
