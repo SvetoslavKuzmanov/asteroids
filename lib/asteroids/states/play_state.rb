@@ -4,6 +4,8 @@ module Asteroids
     def initialize
       @background = Gosu::Image.new($window,
         Utils.get_image_path('background.png'), false)
+      @object_pool = ObjectPool.new
+      @ship = Ship.new(@object_pool)
     end
 
     def draw
