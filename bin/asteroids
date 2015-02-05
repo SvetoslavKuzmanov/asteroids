@@ -11,4 +11,5 @@ Dir.glob(require_pattern).each do |f|
 end
 
 $window = Asteroids::GameWindow.new
+Asteroids::GameState.switch(Asteroids::MenuState.instance)
 $window.show
