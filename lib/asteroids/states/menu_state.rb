@@ -10,13 +10,14 @@ module Asteroids
       @background = Gosu::Image.new($window,
         Utils.get_image_path('background.png'), false)
       @menu = Menu.new
-      @menu.add_item("New Game", lambda { puts 'new game' }, true)
+      @menu.add_item("New Game", lambda { GameState.switch(PlayState.new) },
+        true)
       @menu.add_item("Load Game", lambda { puts 'load game' }, false)
       @menu.add_item("Exit", lambda { $window.close }, false)
     end
 
     def draw
-      @background.draw(0,0,0)
+      @background.draw(0, 0, 0)
       @title.draw(
         $window.width / 2 - @title.width / 2,
         $window.height / 5 - @title.height / 5,
