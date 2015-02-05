@@ -14,6 +14,9 @@ module Asteroids
     end
 
     def button_down(id)
+      if id == Gosu::KbEscape
+        Asteroids::GameState.switch(Asteroids::MenuState.instance)
+      end
     end
 
   end
