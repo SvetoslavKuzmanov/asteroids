@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'gosu'
+
+$window = Asteroids::GameWindow.new
+$window.show
