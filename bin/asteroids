@@ -6,7 +6,9 @@ root_dir = File.expand_path(File.join(
   File.dirname(File.dirname(__FILE__)), 'lib'))
 require_pattern = File.join(root_dir, '**/*.rb')
 
-Dir.glob(require_pattern).each do |f|
+sorted_files = Dir.glob(require_pattern).sort_by { |word| word.downcase}
+
+sorted_files.each do |f|
   require f
 end
 
