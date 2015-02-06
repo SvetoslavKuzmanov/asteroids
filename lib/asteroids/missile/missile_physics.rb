@@ -12,6 +12,7 @@ module Asteroids
       object.x %= 800
       object.y %= 600
       object.lifespan -= 0.1
+      object.mark_for_removal if object.lifespan <= 0
     end
 
   end
