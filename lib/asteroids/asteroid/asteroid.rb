@@ -10,6 +10,8 @@ module Asteroids
       @angle = angle
       @vel_x = vel_x
       @vel_y = vel_y
+      @physics = AsteroidPhysics.new(self, object_pool)
+      @graphics = AsteroidGraphics.new(self)
     end
 
   end
