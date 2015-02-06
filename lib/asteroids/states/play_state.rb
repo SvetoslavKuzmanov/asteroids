@@ -14,7 +14,7 @@ module Asteroids
     end
 
     def update
-      @object_pool.objects.map(&:update)
+      @object_pool.update_all
     end
 
     def button_down(id)
