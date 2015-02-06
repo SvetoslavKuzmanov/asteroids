@@ -20,6 +20,9 @@ module Asteroids
       if $window.button_down? Gosu::KbRight
         object.angle += 4.5
       end
+      if $window.button_down? Gosu::Button::KbSpace
+        object.shoot
+      end
       move
     end
 
