@@ -27,5 +27,11 @@ module Asteroids
       @removable = true
     end
 
+    protected
+
+    def object_pool
+      @object_pool
+    end
+
   end
 end
