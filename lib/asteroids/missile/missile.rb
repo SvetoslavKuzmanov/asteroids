@@ -5,8 +5,14 @@ module Asteroids
 
     def initialize(object_pool, x, y, vel_x, vel_y, angle)
       super(object_pool)
+      @x = x
+      @y = y
+      @angle = angle
+      @vel_x = vel_x
+      @vel_y = vel_y
+      @lifespan = 3
       @physics = MissilePhysics.new(self, object_pool)
-      @graphics = Missilerake Graphics.new(self)
+      @graphics = MissileGraphics.new(self)
     end
 
   end
