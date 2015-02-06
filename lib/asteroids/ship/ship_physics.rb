@@ -10,6 +10,9 @@ module Asteroids
     def update
       if $window.button_down? Gosu::KbUp
         accelerate
+        object.thrust = true
+      else
+        object.thrust = false
       end
       if $window.button_down? Gosu::KbLeft
         object.angle -= 4.5

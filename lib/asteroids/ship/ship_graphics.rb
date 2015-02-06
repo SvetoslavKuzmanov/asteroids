@@ -8,7 +8,12 @@ module Asteroids
     end
 
     def draw
+      if object.thrust
+        @image[0].draw_rot(object.x, object.y, 1, object.angle)
+      else
         @image[1].draw_rot(object.x, object.y, 1, object.angle)
+      end
+
     end
 
   end
