@@ -6,7 +6,7 @@ module Asteroids
     def initialize(object_pool, x, y, vel_x, vel_y, angle)
       super(object_pool)
       @physics = MissilePhysics.new(self, object_pool)
-      @graphics = MissileGraphics.new(self)
+      @graphics = Missilerake Graphics.new(self)
     end
 
   end
