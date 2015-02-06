@@ -4,13 +4,12 @@ require 'gosu'
 
 root_dir = File.expand_path(File.join(
   File.dirname(File.dirname(__FILE__)), 'lib'))
+require_pattern_components = File.join(root_dir, '*/componenets/*.rb')
 require_pattern = File.join(root_dir, '**/*.rb')
 
-sorted_files = Dir.glob(require_pattern).sort_by { |word| word.downcase}
+Dir.glob(require_pattern_components).each { |file| require file }
 
-sorted_files.each do |f|
-  require f
-end
+Dir.glob(require_pattern).each { |file| require file }
 
 $window = Asteroids::GameWindow.new
 Asteroids::GameState.switch(Asteroids::MenuState.instance)
