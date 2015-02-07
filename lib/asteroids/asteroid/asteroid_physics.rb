@@ -14,20 +14,20 @@ module Asteroids
       if @explosion_time
         if Gosu.milliseconds - @explosion_time  > 100
           object.mark_for_removal
-                  if object.radius == 45
-          2.times do |n|
-            Asteroid.new(@object_pool, object.x + rand(20),
-             object.y + rand(20), rand * (-1.5), rand() * 1.5, rand * 3,
-              (object.radius - 15))
+          if object.radius == 45
+            2.times do |n|
+              Asteroid.new(@object_pool, object.x + rand(20),
+               object.y + rand(20), rand * (-1.5), rand() * 1.5, rand * 3,
+                (object.radius - 15))
+            end
           end
-        end
-        if object.radius == 30
-          2.times do |n|
-            Asteroid.new(@object_pool, object.x + rand(20),
-             object.y + rand(20), rand() * (-2.2), rand() * 2.2, rand  * 3,
-              (object.radius - 12.5))
+          if object.radius == 30
+            2.times do |n|
+              Asteroid.new(@object_pool, object.x + rand(20),
+               object.y + rand(20), rand() * (-2.2), rand() * 2.2, rand  * 3,
+                (object.radius - 12.5))
+            end
           end
-        end
         end
       end
       object.x += Gosu::offset_x(object.angle, 0.0001) + object.vel_x
