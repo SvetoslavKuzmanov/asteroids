@@ -24,6 +24,7 @@ module Asteroids
       if $window.button_down? Gosu::Button::KbSpace
         object.shoot
       end
+      @object.mark_for_removal unless object.is_alive?
       move
     end
 

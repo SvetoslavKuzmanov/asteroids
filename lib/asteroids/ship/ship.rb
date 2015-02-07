@@ -28,16 +28,12 @@ module Asteroids
 
     def explode
       Explosion.new(object_pool, @x, @y)
-      if out_of_lives
-        mark_for_removal
-      else
-        spawn
-        @lives -= 1
-      end
+      @lives -= 1
+      spawn
     end
 
-    def out_of_lives
-      true if @lives <= 0
+    def is_alive?
+      return true if @lives != 0 or @lives > 0
     end
 
     def spawn
