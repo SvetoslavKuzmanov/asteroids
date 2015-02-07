@@ -1,7 +1,7 @@
 module Asteroids
   class Asteroid < GameObject
 
-    attr_accessor :x, :y, :vel_x, :vel_y, :angle
+    attr_accessor :x, :y, :vel_x, :vel_y, :angle, :radius
 
     def initialize(object_pool, x, y, vel_x, vel_y, angle)
       super(object_pool)
@@ -12,6 +12,7 @@ module Asteroids
       @vel_y = vel_y
       @physics = AsteroidPhysics.new(self, object_pool)
       @graphics = AsteroidGraphics.new(self)
+      @radius = 40
     end
 
   end

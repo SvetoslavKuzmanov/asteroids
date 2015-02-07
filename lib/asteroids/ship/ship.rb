@@ -3,13 +3,14 @@ module Asteroids
 
     SHOOT_DELAY = 600
 
-    attr_accessor :x, :y, :vel_x, :vel_y, :angle, :thrust
+    attr_accessor :x, :y, :vel_x, :vel_y, :angle, :thrust, :radius
 
     def initialize(object_pool)
       super(object_pool)
       @physics = ShipPhysics.new(self, object_pool)
       @graphics = ShipGraphics.new(self)
       @vel_x = @vel_y = @angle = 0.0
+      @radius = 35
     end
 
     def shoot
