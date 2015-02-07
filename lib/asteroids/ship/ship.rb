@@ -11,6 +11,8 @@ module Asteroids
       @graphics = ShipGraphics.new(self)
       @vel_x = @vel_y = @angle = 0.0
       @radius = 35
+      @lives = 3
+      @object_pool = object_pool
     end
 
     def shoot
@@ -26,7 +28,21 @@ module Asteroids
 
     def explode
       Explosion.new(object_pool, @x, @y)
-      mark_for_removal
+      if out_of_lives
+        mark_for_removal
+      else
+        spawn
+        @lives -= 1
+      end
+    end
+
+    def out_of_lives
+      true if @lives <= 0
+    end
+
+    def spawn
+      @x = object_pool.find_empty_space[:x]
+      @y = object_pool.find_empty_space[:y]
     end
 
   end
