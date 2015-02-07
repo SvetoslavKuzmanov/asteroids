@@ -24,5 +24,10 @@ module Asteroids
       Gosu.milliseconds - (@last_shot || 0) > SHOOT_DELAY
     end
 
+    def explode
+      Explosion.new(object_pool, @x, @y)
+      mark_for_removal
+    end
+
   end
 end

@@ -8,7 +8,7 @@ module Asteroids
     end
 
     def update
-      detect_collision
+      object.explode if detect_collision?
       if $window.button_down? Gosu::KbUp
         accelerate
         object.thrust = true
@@ -29,14 +29,14 @@ module Asteroids
 
     private
 
-    def detect_collision
+    def detect_collision?
       @object_pool.objects.each do |other_object|
         if other_object.is_a? Asteroids::Asteroid and
           Utils.collide(object, other_object)
-            object.mark_for_removal
-            other_object.mark_for_removal
+            return true
         end
       end
+     return false
     end
 
     def accelerate
