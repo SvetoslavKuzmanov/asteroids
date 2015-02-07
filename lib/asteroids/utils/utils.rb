@@ -5,7 +5,7 @@ module Asteroids
       File.expand_path("../../../../assets/", __FILE__)
     end
 
-    def self.assets_path
+    def self.saves_path
       File.expand_path("../../../../saves/", __FILE__)
     end
 
