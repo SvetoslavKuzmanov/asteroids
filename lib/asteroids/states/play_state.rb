@@ -31,6 +31,12 @@ module Asteroids
       if id == Gosu::KbEscape
         Asteroids::GameState.switch(Asteroids::MenuState.instance)
       end
+      if id == Gosu::KbS
+        serialized_object = ::YAML::dump(@object_pool)
+        File.open(Utils.saves_path + '/save.yaml', 'w+') do |file|
+         file.write(serialized_object)
+         end
+      end
     end
 
   end
