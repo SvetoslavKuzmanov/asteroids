@@ -17,7 +17,7 @@ module Asteroids
 
     def explode
       Explosion.new(object_pool, @x, @y)
-      mark_for_removal
+      # mark_for_removal
     end
 
   end
