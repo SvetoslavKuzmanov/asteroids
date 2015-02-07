@@ -7,7 +7,23 @@ module Asteroids
     end
 
     def update
-      object.mark_for_removal if detect_collision?
+      if detect_collision?
+        object.mark_for_removal
+        if object.radius == 45
+          2.times do |n|
+            Asteroid.new(@object_pool, object.x + rand(20),
+             object.y + rand(20), rand * (-1.5), rand() * 1.5, rand,
+              (object.radius - 15))
+          end
+        end
+        if object.radius == 30
+          2.times do |n|
+            Asteroid.new(@object_pool, object.x + rand(20),
+             object.y + rand(20), rand() * (-2.2), rand() * 2.2, rand,
+              (object.radius - 12.5))
+          end
+        end
+      end
       object.x += Gosu::offset_x(object.angle, 0.0001) + object.vel_x
       object.y += Gosu::offset_y(object.angle, 0.0001) + object.vel_y
       object.x %= 800
