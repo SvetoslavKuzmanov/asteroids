@@ -38,7 +38,8 @@ module Asteroids
 
     def detect_collision?
       @object_pool.objects.each do |other_object|
-        if other_object.is_a?  Asteroids::Missile and
+        if other_object.is_a?  Asteroids::Missile or
+          other_object.is_a?  Asteroids::Ship and
           Utils.collide(object, other_object)
             return true
         end
