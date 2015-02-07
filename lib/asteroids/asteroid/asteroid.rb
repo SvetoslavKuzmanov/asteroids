@@ -15,5 +15,10 @@ module Asteroids
       @radius = radius
     end
 
+    def explode
+      Explosion.new(object_pool, @x, @y)
+      mark_for_removal
+    end
+
   end
 end

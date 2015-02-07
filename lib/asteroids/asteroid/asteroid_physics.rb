@@ -8,7 +8,7 @@ module Asteroids
 
     def update
       if detect_collision?
-        object.mark_for_removal
+        object.explode
         if object.radius == 45
           2.times do |n|
             Asteroid.new(@object_pool, object.x + rand(20),
