@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'gosu'
+require 'yaml'
 
 root_dir = File.expand_path(File.join(
   File.dirname(File.dirname(__FILE__)), 'lib'))

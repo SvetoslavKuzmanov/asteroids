@@ -5,6 +5,11 @@ module Asteroids
       File.expand_path("../../../../assets/", __FILE__)
     end
 
+    def self.assets_path
+      File.expand_path("../../../../saves/", __FILE__)
+    end
+
+
     def self.get_image_path(image_name)
       "#{assets_path}/images/#{image_name}"
     end
