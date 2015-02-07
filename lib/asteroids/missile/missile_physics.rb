@@ -20,10 +20,22 @@ module Asteroids
       @object_pool.objects.each do |other_object|
         if other_object.is_a? Asteroids::Asteroid and
           Utils.collide(object, other_object)
+            object.ship.add_score(calculate_points(other_object))
             return true
         end
       end
       return false
+    end
+
+    def calculate_points(asteroid)
+      case asteroid.radius
+      when 45
+        20
+      when 30
+        50
+      when 17.5
+        100
+      end
     end
 
   end

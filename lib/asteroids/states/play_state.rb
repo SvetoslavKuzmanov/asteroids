@@ -17,6 +17,9 @@ module Asteroids
       @object_pool.objects.map(&:draw)
       if !@ship.is_alive?
         @font.draw("Game Over", 210, 250, 50, 2.0, 2.0, 0xffffff00)
+      else
+        @font.draw("Score: ", 580, 10, 50, 1.0, 1.0, 0xffffff00)
+        @font.draw(@ship.score, 700, 10, 50, 1.0, 1.0, 0xffffff00)
       end
     end
 
