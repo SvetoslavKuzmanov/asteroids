@@ -13,5 +13,13 @@ module Asteroids
       "#{assets_path}/fonts/#{font_name}"
     end
 
+    def self.collide(object_a, object_b)
+      if Gosu::distance(object_a.x, object_a.y, object_b.x, object_b.y) <
+           object_a.radius + object_b.radius
+          return true
+      end
+      false
+    end
+
   end
 end
