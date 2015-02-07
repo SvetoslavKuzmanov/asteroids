@@ -6,7 +6,7 @@ module Asteroids
         Utils.get_image_path('background.png'), false)
       @object_pool = ObjectPool.new
       @ship = Ship.new(@object_pool)
-      create_asteroids(4)
+      Utils.create_asteroids(@object_pool, 4)
     end
 
     def draw
@@ -22,13 +22,6 @@ module Asteroids
       if id == Gosu::KbEscape
         Asteroids::GameState.switch(Asteroids::MenuState.instance)
       end
-    end
-
-    def create_asteroids(amount)
-      amount.times do |n|
-       Asteroid.new(@object_pool, rand(800), rand(600),
-       rand() * 0.6 - 0.3, rand() * 0.6 - 0.3, 0)
-     end
     end
 
   end

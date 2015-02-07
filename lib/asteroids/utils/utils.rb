@@ -21,5 +21,12 @@ module Asteroids
       false
     end
 
+    def self.create_asteroids(object_pool, amount)
+      amount.times do |n|
+       Asteroid.new(object_pool, rand(800), rand(600),
+       rand() * 0.6 - 0.3, rand() * 0.6 - 0.3, 0)
+     end
+    end
+
   end
 end
