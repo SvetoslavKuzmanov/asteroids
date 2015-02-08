@@ -4,6 +4,8 @@ module Asteroids
     def initialize
       @background = Gosu::Image.new($window,
         Utils.get_image_path('background.png'), false)
+      @live_image = Gosu::Image.new($window,
+        Utils.get_image_path('ship_small.png'), false)
       @object_pool = ObjectPool.new
       @ship = Ship.new(@object_pool)
       Utils.create_asteroids(@object_pool, 4)
@@ -20,6 +22,10 @@ module Asteroids
       else
         @font.draw("Score: ", 580, 10, 50, 1.0, 1.0, 0xffffff00)
         @font.draw(@ship.score, 700, 10, 50, 1.0, 1.0, 0xffffff00)
+        @font.draw("Lives: ", 10, 10, 50, 1.0, 1.0, 0xffffff00)
+        @ship.lives.times do |n|
+          @live_image.draw(110 + n * 50, 10, 50)
+        end
       end
     end
 

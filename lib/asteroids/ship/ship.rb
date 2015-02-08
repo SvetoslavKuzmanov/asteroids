@@ -3,7 +3,8 @@ module Asteroids
 
     SHOOT_DELAY = 600
 
-    attr_accessor :x, :y, :vel_x, :vel_y, :angle, :thrust, :radius, :score
+    attr_accessor :x, :y, :vel_x, :vel_y, :angle, :thrust, :radius,
+     :score, :lives
 
     def initialize(object_pool)
       super(object_pool)
