@@ -1,15 +1,19 @@
 module Asteroids
   class PlayState < GameState
 
-    def initialize
+    def initialize(save = nil)
+      if save
+        @object_pool = Marshal::load(File.read(save))
+      else
+        @object_pool = ObjectPool.new
+        @ship = Ship.new(@object_pool)
+        Utils.create_asteroids(@object_pool, 4)
+      end
       @background = Gosu::Image.new($window,
         Utils.get_image_path('background.png'), false)
       @live_image = Gosu::Image.new($window,
         Utils.get_image_path('ship_small.png'), false)
-      @object_pool = ObjectPool.new
-      @ship = Ship.new(@object_pool)
-      Utils.create_asteroids(@object_pool, 4)
-            @font = Gosu::Font.new($window,
+      @font = Gosu::Font.new($window,
        Utils.get_font_path('victor-pixel.ttf'),
         34)
       @level = 1
@@ -50,7 +54,7 @@ module Asteroids
         Asteroids::GameState.switch(Asteroids::MenuState.instance)
       end
       if id == Gosu::KbS
-        serialized_object = ::YAML::dump(@object_pool)
+        serialized_object = Marshal::dump(@object_pool)
         File.open(Utils.saves_path + '/save.yaml', 'w+') do |file|
          file.write(serialized_object)
          end

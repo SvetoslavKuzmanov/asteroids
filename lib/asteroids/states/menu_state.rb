@@ -12,7 +12,11 @@ module Asteroids
       @menu = Menu.new
       @menu.add_item("New Game", lambda { GameState.switch(PlayState.new) },
         true)
-      @menu.add_item("Load Game", lambda { puts 'load game' }, false)
+      @menu.add_item("Load Game",
+       lambda do
+        GameState.switch(PlayState.new(Utils.saves_path + '/save.yaml'))
+        end,
+       false)
       @menu.add_item("Exit", lambda { $window.close }, false)
     end
 
