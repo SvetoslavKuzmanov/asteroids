@@ -12,6 +12,8 @@ module Asteroids
             @font = Gosu::Font.new($window,
        Utils.get_font_path('victor-pixel.ttf'),
         34)
+      @level = 1
+      @level_compleate = false
     end
 
     def draw
@@ -30,7 +32,17 @@ module Asteroids
     end
 
     def update
+      check_level_compleate
+      if @level_compleate == true
+        Utils.create_asteroids(@object_pool, 4 + @level)
+        @level += 1
+        @level_compleate = false
+      end
       @object_pool.update_all
+    end
+
+    def check_level_compleate
+      @level_compleate = !@object_pool.objects.any? { |object| object.is_a? Asteroids::Asteroid  }
     end
 
     def button_down(id)
